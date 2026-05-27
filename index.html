@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="CryptoRadar V2" />
+  <title>CryptoRadar V2</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2.2.1" />
+</head>
+<body>
+  <div id="splash">
+    <div class="splash-logo">Crypto<span>Radar</span></div>
+    <div class="splash-sub">Fantasy crypto social</div>
+    <div class="splash-bar"><div class="splash-bar-inner"></div></div>
+  </div>
+
+  <div id="lang-screen">
+    <div class="lang-logo">Crypto<span>Radar</span></div>
+    <div class="lang-mini">Fantasy crypto social</div>
+    <div class="lang-title">Elegí tu idioma</div>
+    <div class="lang-sub">Choose your language</div>
+    <div class="lang-options">
+      <button class="lang-btn" onclick="chooseLang('es')"><span class="lang-flag">🇪🇸</span><span><b>Español</b><small>Latinoamérica · España</small></span></button>
+      <button class="lang-btn" onclick="chooseLang('en')"><span class="lang-flag">🇺🇸</span><span><b>English</b><small>Global</small></span></button>
+    </div>
+  </div>
+
+  <div id="onboarding">
+    <div class="ob-title">Jugá con escenarios <span>crypto</span>.</div>
+    <div class="ob-desc">Simulá compras ficticias, seguí el mercado, compará resultados y preparate para competir con amigos.</div>
+    <button class="ob-btn" onclick="startApp()">ENTRAR →</button>
+  </div>
+
+  <div id="login-screen">
+    <div class="login-logo">Crypto<span>Radar</span><em>V2</em></div>
+    <div class="login-tagline">Fantasy crypto social</div>
+    <div class="login-tabs">
+      <button class="login-tab active" onclick="switchLoginTab('login', this)">Entrar</button>
+      <button class="login-tab" onclick="switchLoginTab('register', this)">Crear cuenta</button>
+    </div>
+    <div class="login-form" id="login-form-login">
+      <input class="login-input" type="text" id="login-user" placeholder="Usuario" autocomplete="username" autocapitalize="none" spellcheck="false" />
+      <input class="login-input" type="password" id="login-pin" placeholder="PIN de 4 dígitos" maxlength="4" inputmode="numeric" pattern="[0-9]*" />
+      <div class="login-error" id="login-error"></div>
+      <button class="login-submit" onclick="doLogin()">ENTRAR</button>
+    </div>
+    <div class="login-form" id="login-form-register" style="display:none">
+      <input class="login-input" type="text" id="reg-user" placeholder="Elegí un usuario" autocomplete="username" autocapitalize="none" spellcheck="false" />
+      <input class="login-input" type="password" id="reg-pin" placeholder="PIN de 4 dígitos" maxlength="4" inputmode="numeric" pattern="[0-9]*" />
+      <input class="login-input" type="password" id="reg-pin2" placeholder="Repetí el PIN" maxlength="4" inputmode="numeric" pattern="[0-9]*" />
+      <div class="login-error" id="reg-error"></div>
+      <button class="login-submit" onclick="doRegister()">CREAR CUENTA</button>
+    </div>
+    <div class="login-footer">Etapa pre-Firebase: tus datos se guardan localmente en este dispositivo.</div>
+    <button class="login-skip" onclick="skipLogin()">Entrar sin cuenta</button>
+  </div>
+
+  <div id="app">
+    <header>
+      <div class="header-left">
+        <div class="logo">Crypto<span>Radar</span><small>V2</small></div>
+        <button class="donate-inline-btn" onclick="openDonate()">☕ Invitanos un café</button>
+      </div>
+      <div class="header-right">
+        <div class="fear-badge neutral" id="fear-badge">— —</div>
+        <button class="app-refresh-btn" id="app-refresh-btn" onclick="(window.manualDataRefresh || window.manualRefresh)()" title="Actualizar datos y revisar versión">↻</button>
+        <div class="user-avatar" id="user-avatar" onclick="showUserMenu()" title="Perfil">?</div>
+      </div>
+    </header>
+
+    <div id="update-banner">
+      <span id="update-banner-text">Hay una nueva versión disponible.</span>
+      <button class="update-banner-btn" onclick="applyAppUpdate()">Actualizar app</button>
+    </div>
+    <div id="offline-banner">📡 Sin conexión — mostrando últimos datos disponibles</div>
+
+    <main class="main-scroll">
+      <section id="page-whatif" class="page active">
+        <div class="section-label">Simulador fantasy</div>
+        <div class="last-update refresh-countdown">Actualizando...</div>
+        <div class="whatif-tabs">
+          <button class="whatif-tab active" onclick="switchWhatIfTab('personal', this)">Personal</button>
+          <button class="whatif-tab" onclick="switchWhatIfTab('grupos', this)">Grupos</button>
+          <button class="whatif-tab" onclick="switchWhatIfTab('ranking', this)">Ranking</button>
+        </div>
+
+        <div id="whatif-sub-personal" class="whatif-sub active">
+          <div class="whatif-hero">
+            <div class="whatif-kicker">What If?</div>
+            <div class="whatif-title-row"><div class="whatif-title">Jugá a ser trader</div><button class="whatif-help-btn" onclick="showCryptoGlossary()">?</button></div>
+            <div class="whatif-desc">Comprá criptos con saldo ficticio usando precios reales. No hay dinero real ni recomendaciones: es un juego.</div>
+          </div>
+          <div class="whatif-balance-card">
+            <div><div class="whatif-stat-label">Disponible</div><div class="whatif-stat-value big" id="whatif-cash">$1000</div></div>
+            <div><div class="whatif-stat-label">Portfolio</div><div class="whatif-stat-value big" id="whatif-total">$1000</div></div>
+            <div><div class="whatif-stat-label">Invertido</div><div class="whatif-stat-value" id="whatif-invested">$0</div></div>
+            <div><div class="whatif-stat-label">Resultado</div><div class="whatif-stat-value" id="whatif-pnl">$0</div></div>
+          </div>
+          <div class="whatif-chart" id="whatif-chart"></div>
+          <div class="whatif-actions">
+            <button class="whatif-btn" onclick="whatIfRecharge()">+$1000 virtuales</button>
+            <button class="whatif-btn secondary" onclick="whatIfReset()">Reiniciar</button>
+          </div>
+          <div class="whatif-note">El progreso se guarda en este dispositivo. Con Firebase, esta sección se sincronizará entre dispositivos.</div>
+          <div class="section-label">Tus posiciones</div>
+          <div id="whatif-positions"></div>
+          <div class="section-label spaced">Historial</div>
+          <div id="whatif-history-list"></div>
+          <div class="section-label spaced">Comprar con saldo ficticio</div>
+          <div id="whatif-market"></div>
+        </div>
+
+        <div id="whatif-sub-grupos" class="whatif-sub">
+          <div class="grupos-placeholder">
+            <div class="grupos-placeholder-icon">👥</div>
+            <div class="grupos-placeholder-title">Grupos privados</div>
+            <div class="grupos-placeholder-desc">Próxima fase: crear grupos, compartir códigos, aprobar ingresos y competir en rankings semanales/mensuales.</div>
+            <button class="grupos-coming-btn">Firebase pending</button>
+          </div>
+        </div>
+
+        <div id="whatif-sub-ranking" class="whatif-sub">
+          <div class="ranking-header">
+            <div class="ranking-kicker">Ranking demo</div>
+            <div class="ranking-title">Competencia fantasy</div>
+            <div class="ranking-desc">Por ahora es local/demo. Luego se alimentará con Firebase.</div>
+          </div>
+          <div class="ranking-tabs">
+            <button class="ranking-tab active" onclick="switchRankingTab('semanal', this)">Semanal</button>
+            <button class="ranking-tab" onclick="switchRankingTab('mensual', this)">Mensual</button>
+            <button class="ranking-tab" onclick="switchRankingTab('global', this)">Global</button>
+          </div>
+          <div id="ranking-list"></div>
+        </div>
+      </section>
+
+      <section id="page-mercado" class="page">
+        <div class="section-label">Mercado</div>
+        <div class="market-subtabs">
+          <button class="market-subtab active" id="subtab-top" onclick="switchMarketTab('top', this)">Top</button>
+          <button class="market-subtab gainers" id="subtab-gainers" onclick="switchMarketTab('gainers', this)">Ganadores</button>
+          <button class="market-subtab losers" id="subtab-losers" onclick="switchMarketTab('losers', this)">Perdedores</button>
+        </div>
+        <div class="last-update refresh-countdown">Actualizando...</div>
+        <div id="crypto-list"><div class="skeleton skel-card"></div><div class="skeleton skel-card"></div><div class="skeleton skel-card"></div></div>
+      </section>
+
+
+      <section id="page-favoritos" class="page">
+        <div class="section-label">Mis Cryptos</div>
+        <div class="last-update refresh-countdown">Actualizando...</div>
+        <div id="fav-locked" class="fav-lock-card">
+          <div class="lock-icon">🔒</div>
+          <div class="lock-title">Desbloqueá Mis Cryptos</div>
+          <div class="lock-desc">Seguí tus criptomonedas favoritas y guardalas en este dispositivo. Para desbloquear esta función, compartí CryptoRadar con 3 amigos.</div>
+          <button class="share-btn" onclick="tryShare()">Compartir con amigos →</button>
+          <div class="share-count">Compartiste con <span id="share-num">0</span>/3 amigos</div>
+        </div>
+        <div id="fav-unlocked" style="display:none">
+          <div class="fav-actions-row">
+            <div class="fav-help">Tocá una cripto en Mercado y agregala desde el detalle.</div>
+            <button class="share-mini-btn" onclick="tryShare()">Compartir app</button>
+          </div>
+          <div id="fav-grid" class="fav-grid"></div>
+        </div>
+      </section>
+
+      <section id="page-novedades" class="page">
+        <div class="section-label">Próximos / Novedades</div>
+        <div class="last-update refresh-countdown">Actualizando...</div>
+        <div class="fg-card">
+          <div class="fg-number yellow" id="fg-num">—</div>
+          <div class="fg-info">
+            <div class="fg-label" id="fg-label">Cargando...</div>
+            <div class="fg-desc" id="fg-desc">Consultando índice Fear & Greed...</div>
+            <div class="fg-bar-wrap"><div class="fg-bar" id="fg-bar"></div></div>
+          </div>
+        </div>
+        <div id="global-summary"></div>
+        <div id="novedades-list"><div class="skeleton skel-card"></div><div class="skeleton skel-card"></div><div class="skeleton skel-card"></div></div>
+      </section>
+    </main>
+
+    <nav>
+      <button class="nav-btn active" id="nav-whatif" onclick="showPage('whatif', this)"><span>🎮</span><small>What If</small></button>
+      <button class="nav-btn" id="nav-mercado" onclick="showPage('mercado', this)"><span>📈</span><small>Mercado</small></button>
+      <button class="nav-btn" id="nav-favoritos" onclick="showPage('favoritos', this)"><span>⭐</span><small>Mis Cryptos</small></button>
+      <button class="nav-btn" id="nav-novedades" onclick="showPage('novedades', this)"><span>⚡</span><small>Novedades</small></button>
+    </nav>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-handle"></div>
+      <div class="modal-header"><img class="modal-coin-img" id="modal-img" alt="" /><div class="modal-name" id="modal-name">—</div></div>
+      <div class="modal-price" id="modal-price">—</div>
+      <div class="modal-stats">
+        <div class="modal-stat"><div class="modal-stat-label">24h</div><div class="modal-stat-val" id="modal-change">—</div></div>
+        <div class="modal-stat"><div class="modal-stat-label">Market cap</div><div class="modal-stat-val" id="modal-mcap">—</div></div>
+        <div class="modal-stat"><div class="modal-stat-label">Volumen</div><div class="modal-stat-val" id="modal-vol">—</div></div>
+        <div class="modal-stat"><div class="modal-stat-label">Rank</div><div class="modal-stat-val" id="modal-rank">—</div></div>
+      </div>
+      <div class="modal-calc"><div class="modal-calc-label">Calculadora rápida</div><input class="modal-calc-input" id="modal-calc-usd" type="number" placeholder="USD" inputmode="decimal" oninput="calcConvert()" /><div class="modal-calc-result" id="modal-calc-result">Ingresá un monto en USD</div></div>
+      <button class="modal-fav-btn" id="modal-fav-btn" onclick="toggleFav()">☆ Agregar a Mis Cryptos</button>
+      <button class="modal-fav-btn secondary-action" id="modal-buy-btn" onclick="buyCurrentModalCoin()">Comprar simulado</button>
+      <button class="modal-close" onclick="closeModal()">CERRAR</button>
+    </div>
+  </div>
+
+  <div id="donate-modal" onclick="closeDonate(event)">
+    <div class="donate-sheet" onclick="event.stopPropagation()">
+      <div class="donate-handle"></div>
+      <div class="donate-title">☕ Invitanos un café</div>
+      <div class="donate-sub">La app es gratis. Cualquier aporte ayuda a seguir mejorando.</div>
+      <div class="donate-qr-wrap">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=binancepay%3A143089741&bgcolor=ffffff&color=000000" alt="QR Binance Pay" onerror="this.style.display='none'">
+      </div>
+      <div class="donate-uid-row"><div><div class="donate-uid-label">Binance UID</div><div class="donate-uid-num">143089741</div></div><button id="copy-uid-btn" onclick="copyUID()">Copiar</button></div>
+      <div class="donate-coins"><span>USDT</span><span>BNB</span><span>BTC</span><span>ETH</span></div>
+      <div class="donate-instructions">Abrí Binance → Pay → Enviar → buscar por UID<br>o escaneá el QR desde la app de Binance.</div>
+      <button class="donate-close" onclick="closeDonate()">CERRAR</button>
+    </div>
+  </div>
+
+  <div id="terms-modal">
+    <div class="terms-box">
+      <div class="terms-title">⚠️ Antes de empezar</div>
+      <div class="terms-body"><strong>CryptoRadar</strong> es una app informativa y lúdica. No opera con dinero real ni constituye asesoramiento financiero. El simulador What If usa dinero ficticio y no tiene valor económico.</div>
+      <button class="terms-accept" onclick="acceptTerms()">Entendido — Entrar</button>
+    </div>
+  </div>
+
+  <div id="install-banner">
+    <div class="install-icon">📲</div><div class="install-text"><div class="install-title">Instalá CryptoRadar</div><div class="install-sub">Usala como app · Gratis · Acceso rápido</div></div><button class="install-btn" onclick="installApp()">Instalar</button><button class="install-close" onclick="dismissInstallBanner()">×</button>
+  </div>
+
+  <script src="app.js?v=2.2.1"></script>
+</body>
+</html>
