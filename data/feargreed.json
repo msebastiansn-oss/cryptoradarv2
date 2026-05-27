@@ -1,1 +1,14 @@
-{"data":[{"value":"50","value_classification":"Neutral","timestamp":"0","time_until_update":"0"}]}
+{
+  "name": "Fear and Greed Index",
+  "data": [
+    {
+      "value": "25",
+      "value_classification": "Extreme Fear",
+      "timestamp": "1779840000",
+      "time_until_update": "14281"
+    }
+  ],
+  "metadata": {
+    "error": null
+  }
+}
