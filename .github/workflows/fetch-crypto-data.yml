@@ -1,0 +1,188 @@
+name: Fetch CryptoRadar V2 Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/30 * * * *'
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: cryptoradar-v2-fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Fetch crypto JSON data
+        id: fetch_data
+        run: |
+          python3 <<'PY'
+          import json
+          import os
+          import urllib.request
+          import time
+          from datetime import datetime, timezone
+
+          os.makedirs('data', exist_ok=True)
+
+          def fetch_json(url, timeout=30, retries=3):
+              for attempt in range(retries):
+                  try:
+                      req = urllib.request.Request(url, headers={
+                          'User-Agent': 'CryptoRadarV2-GitHubActions/2.2',
+                          'Accept': 'application/json'
+                      })
+                      with urllib.request.urlopen(req, timeout=timeout) as response:
+                          return json.loads(response.read().decode('utf-8'))
+                  except Exception as e:
+                      print(f'Intento {attempt+1}/{retries} fallido para {url}: {e}')
+                      if attempt < retries - 1:
+                          time.sleep(5 * (attempt + 1))
+              raise Exception(f'No se pudo obtener {url} tras {retries} intentos')
+
+          def write_json(path, data):
+              with open(path, 'w', encoding='utf-8') as f:
+                  json.dump(data, f, ensure_ascii=False, indent=2)
+                  f.write('\n')
+
+          market_url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=40&page=1&sparkline=false&price_change_percentage=24h'
+          trending_url = 'https://api.coingecko.com/api/v3/search/trending'
+          global_url = 'https://api.coingecko.com/api/v3/global'
+          fear_url = 'https://api.alternative.me/fng/?limit=1'
+
+          market = []
+          success_count = 0
+
+          try:
+              market = fetch_json(market_url)
+              if isinstance(market, list) and len(market) > 0:
+                  write_json('data/market.json', market)
+                  gainers = sorted(market, key=lambda c: c.get('price_change_percentage_24h') or 0, reverse=True)
+                  losers = sorted(market, key=lambda c: c.get('price_change_percentage_24h') or 0)
+                  write_json('data/gainers.json', gainers)
+                  write_json('data/losers.json', losers)
+                  print(f'Market OK: {len(market)} coins')
+                  success_count += 1
+              else:
+                  print('WARNING: Market retornó datos vacíos o inválidos')
+          except Exception as e:
+              print(f'ERROR market: {e}')
+
+          time.sleep(2)  # Rate limit entre llamadas
+
+          try:
+              fear = fetch_json(fear_url)
+              write_json('data/feargreed.json', fear)
+              print('Fear & Greed OK')
+              success_count += 1
+          except Exception as e:
+              print(f'ERROR feargreed: {e}')
+
+          time.sleep(2)
+
+          try:
+              trending = fetch_json(trending_url)
+              write_json('data/trending.json', trending)
+              print('Trending OK')
+              success_count += 1
+          except Exception as e:
+              print(f'ERROR trending: {e}')
+
+          time.sleep(2)
+
+          try:
+              global_data = fetch_json(global_url)
+              write_json('data/global.json', global_data)
+              print('Global OK')
+              success_count += 1
+          except Exception as e:
+              print(f'ERROR global: {e}')
+
+          now = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
+
+          novedades = [
+              {
+                  'tag': 'Datos actualizados',
+                  'title': f'Mercado crypto actualizado automáticamente · {now}',
+                  'meta': 'GitHub Actions',
+                  'url': ''
+              },
+              {
+                  'tag': 'Fantasy Crypto',
+                  'title': 'Usá What If para simular decisiones ficticias y competir con amigos',
+                  'meta': 'CryptoRadar V2',
+                  'url': ''
+              },
+              {
+                  'tag': 'Próxima fase',
+                  'title': 'Firebase: login real, grupos privados, ranking global entre usuarios',
+                  'meta': 'CryptoRadar V2 roadmap',
+                  'url': ''
+              }
+          ]
+
+          if market:
+              top_gainers = sorted(market, key=lambda c: c.get('price_change_percentage_24h') or 0, reverse=True)[:3]
+              top_losers = sorted(market, key=lambda c: c.get('price_change_percentage_24h') or 0)[:3]
+              for coin in top_gainers:
+                  chg = coin.get('price_change_percentage_24h') or 0
+                  novedades.append({
+                      'tag': 'Mayor suba 24h',
+                      'title': f"{coin.get('name','Cripto')} sube {chg:.2f}% en las últimas 24h",
+                      'meta': coin.get('symbol','').upper(),
+                      'url': f"https://www.coingecko.com/en/coins/{coin.get('id','')}"
+                  })
+              for coin in top_losers:
+                  chg = coin.get('price_change_percentage_24h') or 0
+                  novedades.append({
+                      'tag': 'Mayor baja 24h',
+                      'title': f"{coin.get('name','Cripto')} cae {abs(chg):.2f}% en las últimas 24h",
+                      'meta': coin.get('symbol','').upper(),
+                      'url': f"https://www.coingecko.com/en/coins/{coin.get('id','')}"
+                  })
+
+          # Links útiles estáticos
+          static_links = [
+              {'tag':'Calendario', 'title':'Próximos eventos, lanzamientos y unlocks de proyectos crypto', 'meta':'CoinMarketCal', 'url':'https://coinmarketcal.com/'},
+              {'tag':'DeFi', 'title':'Revisar TVL y actividad por cadena antes de mirar tokens del sector', 'meta':'DeFiLlama', 'url':'https://defillama.com/'},
+              {'tag':'Narrativa', 'title':'IA + cripto: revisar tokens del sector, volumen y rotación semanal', 'meta':'CoinMarketCap', 'url':'https://coinmarketcap.com/view/artificial-intelligence/'},
+              {'tag':'Macro', 'title':'Tasas, dólar e inflación siguen marcando el clima de activos de riesgo', 'meta':'Fed Reserve', 'url':'https://www.federalreserve.gov/monetarypolicy.htm'},
+          ]
+          novedades.extend(static_links)
+
+          write_json('data/novedades.json', novedades)
+          print(f'Novedades OK: {len(novedades)} items')
+          print(f'\nResumen: {success_count}/4 fuentes exitosas')
+          PY
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/*.json
+
+          if git diff --cached --quiet; then
+            echo "Sin cambios en los datos — nada que commitear"
+          else
+            git commit -m "chore: update CryptoRadar V2 data $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
+
+      - name: Trigger next run in 15 minutes
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Esperando 15 minutos para el próximo ciclo de datos..."
+          sleep 900
+
+          gh workflow run fetch-crypto-data.yml --ref main || echo "No se pudo disparar el próximo run (es normal si el cron ya lo hará)"
