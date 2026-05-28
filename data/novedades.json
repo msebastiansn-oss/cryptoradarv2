@@ -1,7 +1,7 @@
 [
   {
     "tag": "Datos actualizados",
-    "title": "Mercado crypto actualizado automáticamente · 2026-05-28 01:38 UTC",
+    "title": "Mercado crypto actualizado automáticamente · 2026-05-28 01:53 UTC",
     "meta": "GitHub Actions",
     "url": ""
   },
@@ -25,33 +25,33 @@
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Stellar sube 17.31% en las últimas 24h",
+    "title": "Stellar sube 17.17% en las últimas 24h",
     "meta": "XLM",
     "url": "https://www.coingecko.com/en/coins/stellar"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Monero sube 2.87% en las últimas 24h",
+    "title": "Monero sube 2.78% en las últimas 24h",
     "meta": "XMR",
     "url": "https://www.coingecko.com/en/coins/monero"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Zcash cae 8.13% en las últimas 24h",
+    "title": "Zcash cae 7.54% en las últimas 24h",
     "meta": "ZEC",
     "url": "https://www.coingecko.com/en/coins/zcash"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Bittensor cae 7.16% en las últimas 24h",
-    "meta": "TAO",
-    "url": "https://www.coingecko.com/en/coins/bittensor"
+    "title": "Toncoin cae 6.93% en las últimas 24h",
+    "meta": "TON",
+    "url": "https://www.coingecko.com/en/coins/the-open-network"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Toncoin cae 6.77% en las últimas 24h",
-    "meta": "TON",
-    "url": "https://www.coingecko.com/en/coins/the-open-network"
+    "title": "Bittensor cae 6.79% en las últimas 24h",
+    "meta": "TAO",
+    "url": "https://www.coingecko.com/en/coins/bittensor"
   },
   {
     "tag": "Calendario",
