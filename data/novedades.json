@@ -1,7 +1,7 @@
 [
   {
     "tag": "Datos actualizados",
-    "title": "Mercado crypto actualizado automáticamente · 2026-05-29 22:45 UTC",
+    "title": "Mercado crypto actualizado automáticamente · 2026-05-29 23:00 UTC",
     "meta": "GitHub Actions",
     "url": ""
   },
@@ -19,39 +19,39 @@
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Stellar sube 18.82% en las últimas 24h",
+    "title": "Stellar sube 21.93% en las últimas 24h",
     "meta": "XLM",
     "url": "https://www.coingecko.com/en/coins/stellar"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Monero sube 8.22% en las últimas 24h",
+    "title": "Monero sube 9.68% en las últimas 24h",
     "meta": "XMR",
     "url": "https://www.coingecko.com/en/coins/monero"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Hyperliquid sube 5.45% en las últimas 24h",
+    "title": "Hyperliquid sube 4.50% en las últimas 24h",
     "meta": "HYPE",
     "url": "https://www.coingecko.com/en/coins/hyperliquid"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Bittensor cae 3.75% en las últimas 24h",
+    "title": "Bittensor cae 3.51% en las últimas 24h",
     "meta": "TAO",
     "url": "https://www.coingecko.com/en/coins/bittensor"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Zcash cae 2.86% en las últimas 24h",
-    "meta": "ZEC",
-    "url": "https://www.coingecko.com/en/coins/zcash"
+    "title": "Sui cae 2.67% en las últimas 24h",
+    "meta": "SUI",
+    "url": "https://www.coingecko.com/en/coins/sui"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Sui cae 2.73% en las últimas 24h",
-    "meta": "SUI",
-    "url": "https://www.coingecko.com/en/coins/sui"
+    "title": "Zcash cae 2.55% en las últimas 24h",
+    "meta": "ZEC",
+    "url": "https://www.coingecko.com/en/coins/zcash"
   },
   {
     "tag": "Calendario",
