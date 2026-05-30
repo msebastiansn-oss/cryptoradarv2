@@ -1,7 +1,7 @@
 [
   {
     "tag": "Datos actualizados",
-    "title": "Mercado crypto actualizado automáticamente · 2026-05-30 00:47 UTC",
+    "title": "Mercado crypto actualizado automáticamente · 2026-05-30 01:02 UTC",
     "meta": "GitHub Actions",
     "url": ""
   },
@@ -19,37 +19,37 @@
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Stellar sube 31.56% en las últimas 24h",
+    "title": "Stellar sube 35.12% en las últimas 24h",
     "meta": "XLM",
     "url": "https://www.coingecko.com/en/coins/stellar"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Hedera sube 16.23% en las últimas 24h",
+    "title": "Hedera sube 19.25% en las últimas 24h",
     "meta": "HBAR",
     "url": "https://www.coingecko.com/en/coins/hedera-hashgraph"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Monero sube 11.47% en las últimas 24h",
+    "title": "Monero sube 12.65% en las últimas 24h",
     "meta": "XMR",
     "url": "https://www.coingecko.com/en/coins/monero"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Zcash cae 5.25% en las últimas 24h",
-    "meta": "ZEC",
-    "url": "https://www.coingecko.com/en/coins/zcash"
-  },
-  {
-    "tag": "Mayor baja 24h",
-    "title": "NEAR Protocol cae 4.78% en las últimas 24h",
+    "title": "NEAR Protocol cae 6.07% en las últimas 24h",
     "meta": "NEAR",
     "url": "https://www.coingecko.com/en/coins/near"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Bittensor cae 3.87% en las últimas 24h",
+    "title": "Zcash cae 5.08% en las últimas 24h",
+    "meta": "ZEC",
+    "url": "https://www.coingecko.com/en/coins/zcash"
+  },
+  {
+    "tag": "Mayor baja 24h",
+    "title": "Bittensor cae 4.43% en las últimas 24h",
     "meta": "TAO",
     "url": "https://www.coingecko.com/en/coins/bittensor"
   },
