@@ -1,7 +1,7 @@
 [
   {
     "tag": "Datos actualizados",
-    "title": "Mercado crypto actualizado automáticamente · 2026-05-30 14:17 UTC",
+    "title": "Mercado crypto actualizado automáticamente · 2026-05-30 14:32 UTC",
     "meta": "GitHub Actions",
     "url": ""
   },
@@ -19,39 +19,39 @@
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Stellar sube 23.02% en las últimas 24h",
+    "title": "Stellar sube 23.63% en las últimas 24h",
     "meta": "XLM",
     "url": "https://www.coingecko.com/en/coins/stellar"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Hedera sube 12.23% en las últimas 24h",
+    "title": "Hedera sube 12.55% en las últimas 24h",
     "meta": "HBAR",
     "url": "https://www.coingecko.com/en/coins/hedera-hashgraph"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Hyperliquid sube 6.74% en las últimas 24h",
-    "meta": "HYPE",
-    "url": "https://www.coingecko.com/en/coins/hyperliquid"
+    "title": "BNB sube 7.84% en las últimas 24h",
+    "meta": "BNB",
+    "url": "https://www.coingecko.com/en/coins/binancecoin"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "MemeCore cae 5.74% en las últimas 24h",
+    "title": "MemeCore cae 5.18% en las últimas 24h",
     "meta": "M",
     "url": "https://www.coingecko.com/en/coins/memecore"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Zcash cae 2.73% en las últimas 24h",
-    "meta": "ZEC",
-    "url": "https://www.coingecko.com/en/coins/zcash"
+    "title": "NEAR Protocol cae 2.41% en las últimas 24h",
+    "meta": "NEAR",
+    "url": "https://www.coingecko.com/en/coins/near"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "NEAR Protocol cae 2.59% en las últimas 24h",
-    "meta": "NEAR",
-    "url": "https://www.coingecko.com/en/coins/near"
+    "title": "Zcash cae 1.55% en las últimas 24h",
+    "meta": "ZEC",
+    "url": "https://www.coingecko.com/en/coins/zcash"
   },
   {
     "tag": "Calendario",
