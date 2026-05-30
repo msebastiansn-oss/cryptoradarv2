@@ -1,7 +1,7 @@
 [
   {
     "tag": "Datos actualizados",
-    "title": "Mercado crypto actualizado automáticamente · 2026-05-30 12:30 UTC",
+    "title": "Mercado crypto actualizado automáticamente · 2026-05-30 12:45 UTC",
     "meta": "GitHub Actions",
     "url": ""
   },
@@ -19,39 +19,39 @@
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Stellar sube 23.54% en las últimas 24h",
+    "title": "Stellar sube 20.80% en las últimas 24h",
     "meta": "XLM",
     "url": "https://www.coingecko.com/en/coins/stellar"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Hedera sube 11.09% en las últimas 24h",
+    "title": "Hedera sube 11.21% en las últimas 24h",
     "meta": "HBAR",
     "url": "https://www.coingecko.com/en/coins/hedera-hashgraph"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Hyperliquid sube 9.41% en las últimas 24h",
+    "title": "Hyperliquid sube 9.85% en las últimas 24h",
     "meta": "HYPE",
     "url": "https://www.coingecko.com/en/coins/hyperliquid"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "MemeCore cae 5.94% en las últimas 24h",
+    "title": "MemeCore cae 5.95% en las últimas 24h",
     "meta": "M",
     "url": "https://www.coingecko.com/en/coins/memecore"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Zcash cae 1.74% en las últimas 24h",
-    "meta": "ZEC",
-    "url": "https://www.coingecko.com/en/coins/zcash"
+    "title": "Canton cae 1.64% en las últimas 24h",
+    "meta": "CC",
+    "url": "https://www.coingecko.com/en/coins/canton-network"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Canton cae 1.46% en las últimas 24h",
-    "meta": "CC",
-    "url": "https://www.coingecko.com/en/coins/canton-network"
+    "title": "Zcash cae 1.43% en las últimas 24h",
+    "meta": "ZEC",
+    "url": "https://www.coingecko.com/en/coins/zcash"
   },
   {
     "tag": "Calendario",
