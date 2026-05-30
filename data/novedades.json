@@ -1,7 +1,7 @@
 [
   {
     "tag": "Datos actualizados",
-    "title": "Mercado crypto actualizado automáticamente · 2026-05-30 15:03 UTC",
+    "title": "Mercado crypto actualizado automáticamente · 2026-05-30 15:18 UTC",
     "meta": "GitHub Actions",
     "url": ""
   },
@@ -19,37 +19,37 @@
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Stellar sube 22.06% en las últimas 24h",
+    "title": "Stellar sube 20.00% en las últimas 24h",
     "meta": "XLM",
     "url": "https://www.coingecko.com/en/coins/stellar"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Hedera sube 11.38% en las últimas 24h",
+    "title": "Hedera sube 9.15% en las últimas 24h",
     "meta": "HBAR",
     "url": "https://www.coingecko.com/en/coins/hedera-hashgraph"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "BNB sube 8.04% en las últimas 24h",
+    "title": "BNB sube 7.84% en las últimas 24h",
     "meta": "BNB",
     "url": "https://www.coingecko.com/en/coins/binancecoin"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "MemeCore cae 4.27% en las últimas 24h",
-    "meta": "M",
-    "url": "https://www.coingecko.com/en/coins/memecore"
-  },
-  {
-    "tag": "Mayor baja 24h",
-    "title": "NEAR Protocol cae 1.68% en las últimas 24h",
+    "title": "NEAR Protocol cae 4.20% en las últimas 24h",
     "meta": "NEAR",
     "url": "https://www.coingecko.com/en/coins/near"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Rain cae 1.17% en las últimas 24h",
+    "title": "MemeCore cae 4.15% en las últimas 24h",
+    "meta": "M",
+    "url": "https://www.coingecko.com/en/coins/memecore"
+  },
+  {
+    "tag": "Mayor baja 24h",
+    "title": "Rain cae 1.75% en las últimas 24h",
     "meta": "RAIN",
     "url": "https://www.coingecko.com/en/coins/rain"
   },
