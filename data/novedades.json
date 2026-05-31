@@ -1,7 +1,7 @@
 [
   {
     "tag": "Datos actualizados",
-    "title": "Mercado crypto actualizado automáticamente · 2026-05-31 10:08 UTC",
+    "title": "Mercado crypto actualizado automáticamente · 2026-05-31 10:23 UTC",
     "meta": "GitHub Actions",
     "url": ""
   },
@@ -19,31 +19,31 @@
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "LAB sube 11.38% en las últimas 24h",
-    "meta": "LAB",
-    "url": "https://www.coingecko.com/en/coins/lab"
-  },
-  {
-    "tag": "Mayor suba 24h",
-    "title": "MemeCore sube 7.14% en las últimas 24h",
+    "title": "MemeCore sube 8.08% en las últimas 24h",
     "meta": "M",
     "url": "https://www.coingecko.com/en/coins/memecore"
   },
   {
     "tag": "Mayor suba 24h",
-    "title": "Toncoin sube 7.02% en las últimas 24h",
+    "title": "LAB sube 8.00% en las últimas 24h",
+    "meta": "LAB",
+    "url": "https://www.coingecko.com/en/coins/lab"
+  },
+  {
+    "tag": "Mayor suba 24h",
+    "title": "Toncoin sube 7.04% en las últimas 24h",
     "meta": "TON",
     "url": "https://www.coingecko.com/en/coins/the-open-network"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "Monero cae 7.66% en las últimas 24h",
+    "title": "Monero cae 8.17% en las últimas 24h",
     "meta": "XMR",
     "url": "https://www.coingecko.com/en/coins/monero"
   },
   {
     "tag": "Mayor baja 24h",
-    "title": "NEAR Protocol cae 6.87% en las últimas 24h",
+    "title": "NEAR Protocol cae 6.79% en las últimas 24h",
     "meta": "NEAR",
     "url": "https://www.coingecko.com/en/coins/near"
   },
